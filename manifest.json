@@ -1,8 +1,9 @@
 {
   "id": "sync-wechat-data",
   "name": "Sync Wechat Data",
-  "description": "sync wechat data",
+  "description": "Sync Wechat Data.",
   "author": "frank",
   "minAppVersion": "0.11.0",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "isDesktopOnly": true
 }
