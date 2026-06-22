@@ -3,7 +3,7 @@
   "name": "Sync Wechat Data",
   "description": "Synchronize WeChat articles and saved content directly to your vault.",
   "author": "frank",
-  "minAppVersion": "0.11.0",
-  "version": "0.0.1",
+  "minAppVersion": "1.4.0",
+  "version": "0.0.2",
   "isDesktopOnly": true
 }

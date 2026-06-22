@@ -1,6 +1,6 @@
 {
   "name": "sync-data",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "sync data",
   "main": "lib/main.js",
   "license": "MIT",
@@ -12,5 +12,9 @@
     "typescript": "^4.1.5",
     "obsidian-plugin-cli": "^0.4.3",
     "obsidian": "obsidianmd/obsidian-api"
+  },
+  "dependencies": {
+    "defuddle": "0.18.1",
+    "linkedom": "0.18.12"
   }
 }
