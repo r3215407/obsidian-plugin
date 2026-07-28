@@ -127,7 +127,23 @@ export default class SyncData extends Plugin {
     }
 
     if (url.includes('weixin')) {
-      options.contentSelector = '#js_content';
+      if (doc.querySelector('#js_content')) {
+        options.contentSelector = '#js_content';
+      } else {
+        const cdnRegex = /cdn_url:\s*'([^']+)'/g;
+        const imageUrls = Array.from(new Set(Array.from(html.matchAll(cdnRegex)).map(m => m[1]))).filter(url => url.includes('from=appmsg'));
+        const images = imageUrls.map(url => `![](${url})`).join('\n');
+        const desc = Array.from(doc.querySelectorAll('meta[name="description"]')).map(item => item.getAttribute('content') || '').join('\n');
+        const authorMatch = html.match(/nick_name: '([^']+)'/);
+        const author = authorMatch ? authorMatch[1].trim() : '';
+
+        return {
+          title: doc.querySelector('meta[property="og:title"]')?.getAttribute('content') || '',
+          markdown: images + '\n' + (desc.replaceAll('\\x0a', '\n') || ''),
+          author,
+          tags: ''
+        };
+      }
     }
 
     const result = new Defuddle(doc, options).parse();
